@@ -103,4 +103,26 @@ public class NewTickerData {
     public String getMakerCoefficient() {
         return makerCoefficient;
     }
+
+    @Override
+    public String toString() {
+        return "\n\nNewTickerData{" +
+                "symbol='" + symbol + '\'' +
+                "\n, symbolName='" + symbolName + '\'' +
+                "\n, buy='" + buy + '\'' +
+                "\n, sell='" + sell + '\'' +
+                "\n, changeRate='" + changeRate + '\'' +
+                "\n, changePrice='" + changePrice + '\'' +
+                "\n, high='" + high + '\'' +
+                "\n, low='" + low + '\'' +
+                "\n, vol='" + vol + '\'' +
+                "\n, volValue='" + volValue + '\'' +
+                "\n, last='" + last + '\'' +
+                "\n, averagePrice='" + averagePrice + '\'' +
+                "\n, takerFeeRate='" + takerFeeRate + '\'' +
+                "\n, makerFeeRate='" + makerFeeRate + '\'' +
+                "\n, takerCoefficient='" + takerCoefficient + '\'' +
+                "\n, makerCoefficient='" + makerCoefficient + '\'' +
+                '}';
+    }
 }

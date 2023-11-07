@@ -1,5 +1,6 @@
 package toolsQA;
 
+import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
@@ -16,7 +17,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class WorkingWithQueryParametrs {
+public class WorkingWithGetQueryParametrs {
 
 
 
@@ -82,6 +83,24 @@ public class WorkingWithQueryParametrs {
             System.out.println("data[1] = " + jsonPath.getString("data[1]"));
             System.out.println("data[2] = " + jsonPath.getString("data[2]"));
             System.out.println("data[2].firstName = " + jsonPath.getString("data[2].first_name"));
+
+        }
+        @Test
+    public void getValuesFromBooksStore(){
+            RestAssured.baseURI = "https://demoqa.com/BookStore/v1/Book"
+                    ;
+            RequestSpecification req =given();
+//                    .baseUri("https://demoqa.com/")
+//                    .basePath("BookStore/v1/Book")
+//                    .param("ISBN","9781449325862");//можно так
+            Response response = req.queryParam("ISBN","9781449325862").get();//а можно так
+            ResponseBody body = response.body();
+            String res = body.asPrettyString();
+            //System.out.println(res);
+           // JsonPath jsonPath =response.jsonPath();//можно так
+            JsonPath jsonPath = new JsonPath(res);// а можно и так
+            String out = jsonPath.getString("description");
+            System.out.println(out);
 
         }
 }

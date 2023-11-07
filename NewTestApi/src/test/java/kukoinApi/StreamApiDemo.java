@@ -56,7 +56,7 @@ public class StreamApiDemo {
                 .sorted((o1,o2)->o2.getChangeRate().compareTo(o1.getChangeRate())).collect(Collectors.toList());
         List<NewTickerData> top10 = list.stream().limit(10).collect(Collectors.toList());
        //System.out.println(top10);
-       Assert.assertEquals(top10.get(0).getSymbol(),"KARATE-USDT");
+       Assert.assertEquals("MTS-USDT",top10.get(0).getSymbol());
         int i=0;
    }
    @Test

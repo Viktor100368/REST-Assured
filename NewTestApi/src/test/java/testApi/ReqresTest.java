@@ -98,7 +98,7 @@ public class ReqresTest {
         String regex = "(.{5})$";
         String currentTime = Clock.systemUTC().instant().toString().replaceAll(regex,"");
         System.out.println(currentTime);
-        //Assert.assertEquals(currentTime,responce.getUpdatedAt().replaceAll(regex,""));
+        Assert.assertEquals(currentTime,responce.getUpdatedAt().replaceAll(regex,""));
         System.out.println(responce.getUpdatedAt().replaceAll(regex,""));
     }
 

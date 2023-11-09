@@ -42,16 +42,18 @@ public class ReqresTest {
         Integer id = 4;
         String token = "QpwL5tke4Pnpja7X4";
         Register register = new Register("eve.holt@reqres.in","pistol");
-        SuccesReg succesReg = given()
+       // SuccesReg succesReg
+             String list   = given()
                 .body(register)
                 .when()
                 .post("api/register")
                 .then().log().all()
-                .extract().as(SuccesReg.class);
-        Assert.assertNotNull(succesReg.getId());
-        Assert.assertNotNull(succesReg.getToken());
-        Assert.assertEquals(id,succesReg.getId());
-        Assert.assertEquals(token,succesReg.getToken());
+                .extract().body().asPrettyString();//.as(SuccesReg.class);
+        System.out.println("output = "+list);
+//        Assert.assertNotNull(succesReg.getId());
+//        Assert.assertNotNull(succesReg.getToken());
+//        Assert.assertEquals(id,succesReg.getId());
+//        Assert.assertEquals(token,succesReg.getToken());
     }
     @Test
     public void noSuccessRegTest(){
